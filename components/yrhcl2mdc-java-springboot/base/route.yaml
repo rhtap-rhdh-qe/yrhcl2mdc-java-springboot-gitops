@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: yrhcl2mdc-java-springboot
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: yrhcl2mdc-java-springboot 
+  name: yrhcl2mdc-java-springboot
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: yrhcl2mdc-java-springboot
+    weight: 100 
